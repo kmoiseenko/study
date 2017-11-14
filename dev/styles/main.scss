@@ -1,0 +1,32 @@
+@import 'reset';
+
+@import 'variables';
+
+@import 'helpers';
+
+// Components
+// ------------------------------------------------------------
+@import 'components/_grid';
+@import 'components/_pagination';
+@import 'components/_tabs';
+@import 'components/_preloader';
+@import 'components/_apod';
+
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+.app-main-container {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+
+#mars {
+	display: flex;
+	flex: 1;
+	overflow: auto;
+}

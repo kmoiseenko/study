@@ -1,0 +1,25 @@
+.app-tabs {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin: 20px 0;
+	min-height: 30px;
+
+	//.app-tabs__item
+	&__item {
+		font-size: 18px;
+		padding: 0 15px;
+		border-bottom: 4px solid transparent;
+		cursor: pointer;
+	}
+
+	//.app-tabs__item.active
+	&__item.active {
+		border-color: $c-blue;
+	}
+
+	//.app-tabs__item + .app-tabs__item
+	&__item + &__item {
+		margin-left: 20px;
+	}
+}

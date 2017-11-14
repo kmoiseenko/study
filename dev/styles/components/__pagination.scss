@@ -1,0 +1,41 @@
+.app-pagination {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin: 10px 0;
+	min-height: 40px;
+
+	//.app-pagination__item.active > button
+	&__item.active > button {
+		background-color: $c-gray--dark;
+	}
+
+	//.app-pagination__item:first-child > button
+	&__item:first-child > button {
+		border-radius: 4px 0 0 4px;
+	}
+
+	//.app-pagination__item:last-child > button
+	&__item:last-child > button {
+		border-radius: 0 4px 4px 0;
+	}
+
+	//.app-pagination__item + .app-pagination__item > button
+	&__item + &__item > button {
+		border-left: none
+	}
+
+	//.app-pagination__item > button
+	&__item > button {
+		padding: 10px 15px;
+		background-color: $c-white;
+		border: 1px solid $c-gray;
+		color: $c-blue;
+		font-size: 15px;
+		cursor: pointer;
+
+		&:hover {
+			background-color: $c-gray--dark;
+		}
+	}
+}
