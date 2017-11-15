@@ -6,6 +6,16 @@
 	margin-bottom: 10px;
 	padding: 0 10px;
 
+	//.app-apod__item
+	&__item {
+		width: 50%;
+
+		//.app-apod__item img
+		img {
+			width: 100%;
+		}
+	}
+
 	//.app-apod__item + .app-apod__item
 	&__item + &__item {
 		padding-left: 10px;

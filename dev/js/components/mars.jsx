@@ -11,7 +11,7 @@ class Mars extends React.Component {
 		this.apiKey = 'rom93FHJOFb6TF4jSC7USdH03jogPMtfg7qDHrMd';
 		this.state = {
 			mars: '',
-			page: 2,
+			page: 1,
 		}
 	}
 
