@@ -2,7 +2,11 @@ const path = require('path');
 
 module.exports = {
     context: path.resolve(__dirname, "./dev/"),
-    entry: ['webpack-dev-server/client?http://localhost:9000', './js/app.jsx', './styles/main.scss'],
+    entry: [
+        'webpack-dev-server/client?http://localhost:9000',
+        './js/router.jsx',
+        './styles/main.scss'
+    ],
     output: {
 		path: path.resolve(__dirname, 'public'),
 		filename: 'js/app.bundle.js'

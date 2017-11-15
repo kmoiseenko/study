@@ -5,8 +5,8 @@ class Pagination extends React.Component {
         super(props);
     }
 
-    onItemClick = (test) => {
-        this.props.onChange(test);
+    onItemClick = (pageNumber) => {
+        this.props.onChange(pageNumber);
     };
 
     render() {
@@ -15,7 +15,7 @@ class Pagination extends React.Component {
         for(let i = 1; i <= this.props.pagesCount; i++) {
             list.push(
                 <li key={i}
-                    className={parseInt(this.props.defaultPage) === i ? 'app-pagination__item active' : 'app-pagination__item'}
+                    className={this.props.defaultPage === i ? 'app-pagination__item active' : 'app-pagination__item'}
                     onClick={this.onItemClick.bind(null, i)}>
                     <button type='button'>{i}</button>
                 </li>

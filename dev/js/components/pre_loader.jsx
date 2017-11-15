@@ -5,7 +5,6 @@ class PreLoader extends React.Component {
 		super(props);
 	}
 
-
 	render() {
 		return(
 			<div className={'app-preloader'}>Please, stand by.</div>
