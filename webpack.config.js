@@ -1,14 +1,15 @@
 const path = require('path');
+const NODE_ENV = process.env.NODE_ENV;
 
 module.exports = {
-    context: path.resolve(__dirname, "./dev/"),
+    context: path.resolve(__dirname, './dev/'),
     entry: [
         'webpack-dev-server/client?http://localhost:9000',
         './js/router.jsx',
         './styles/main.scss'
     ],
     output: {
-		path: path.resolve(__dirname, 'public'),
+		path: path.resolve(__dirname, './public'),
 		filename: 'js/app.bundle.js'
     },
     devServer: {
@@ -42,3 +43,11 @@ module.exports = {
         ]
     }
 };
+
+switch(NODE_ENV) {
+	case 'dev':
+		break;
+
+	case 'build':
+		break;
+}
