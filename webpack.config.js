@@ -1,28 +1,31 @@
-const path = require('path');
-const NODE_ENV = process.env.NODE_ENV;
+let path = require('path');
+let extractTextPlugin = require('extract-text-webpack-plugin');
+let CopyWebpackPlugin = require('copy-webpack-plugin');
+let outputDir = process.env.NODE_ENV === 'dev' ? './dev' : './public';
+
+let extractPlugin = new extractTextPlugin({
+   filename: 'css/main.css'
+});
+
+let copyPlugin = new CopyWebpackPlugin([
+    {
+        from: 'index.html',
+        to: ''
+    }
+]);
 
 module.exports = {
     context: path.resolve(__dirname, './dev/'),
-    entry: [
-        'webpack-dev-server/client?http://localhost:9000',
-        './js/router.jsx',
-        './styles/main.scss'
-    ],
-    output: {
-		path: path.resolve(__dirname, './public'),
-		filename: 'js/app.bundle.js'
+    entry: {
+        'js/app.js' : './js/router.jsx',
+        'css/main.css': './styles/main.scss'
     },
-    devServer: {
-        host: "0.0.0.0",
-        historyApiFallback: true,
-        inline: true,
-        port: 9000,
-        headers: { "Access-Control-Allow-Origin": "*" },
-        publicPath: 'http://0.0.0.0:9000/',
-        contentBase: path.resolve(__dirname, './public')
+    output: {
+        path: path.resolve(__dirname, outputDir),
+        filename: '[name]'
     },
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.(es6|jsx?)$/,
                 exclude: /(node_modules|bower_components$)/,
@@ -30,24 +33,23 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
-                loader: "style-loader" // creates style nodes from JS strings
-            },
-            {
-                test: /\.scss$/,
-                loader: "css-loader" // translates CSS into CommonJS
-            },
-            {
-                test: /\.scss$/,
-                loader: "sass-loader" // compiles Sass to CSS
+                use: extractPlugin.extract({
+                    use: ['css-loader', 'sass-loader']
+                })
             }
         ]
+    },
+    plugins: [
+        extractPlugin,
+        copyPlugin
+    ],
+    devServer: {
+        host: "0.0.0.0",
+        historyApiFallback: true,
+        inline: true,
+        port: 9000,
+        headers: { "Access-Control-Allow-Origin": "*" },
+        publicPath: 'http://0.0.0.0:9000/',
+        contentBase: path.resolve(__dirname, './dev')
     }
 };
-
-switch(NODE_ENV) {
-	case 'dev':
-		break;
-
-	case 'build':
-		break;
-}
