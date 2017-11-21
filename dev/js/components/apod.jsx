@@ -7,7 +7,6 @@ class Apod extends React.Component {
 	constructor(props) {
 		super(props);
 
-		this.apiKey = 'rom93FHJOFb6TF4jSC7USdH03jogPMtfg7qDHrMd';
 		this.state = {
 			apod: ''
 		}
@@ -18,7 +17,7 @@ class Apod extends React.Component {
 	};
 
 	getApod = () => {
-		getData('https://api.nasa.gov/planetary/apod?api_key=' + this.apiKey).then(
+		getData('https://api.nasa.gov/planetary/apod?api_key=' + API_KEY).then(
 			response => {
 				this.setState({
 					apod: JSON.parse(response)

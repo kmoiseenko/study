@@ -8,7 +8,6 @@ class Mars extends React.Component {
 	constructor(props) {
 		super(props);
 
-		this.apiKey = 'rom93FHJOFb6TF4jSC7USdH03jogPMtfg7qDHrMd';
 		this.state = {
 			mars: '',
 			page: 1,
@@ -20,7 +19,7 @@ class Mars extends React.Component {
 	};
 
 	getMarsPictures = (page) => {
-		getData('https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&page=' + page + '&api_key=' + this.apiKey).then(
+		getData('https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&page=' + page + '&api_key=' + API_KEY).then(
 			response => {
 				this.setState({
 					mars: JSON.parse(response),
