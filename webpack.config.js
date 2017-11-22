@@ -3,6 +3,10 @@ let webpack = require('webpack');
 let extractTextPlugin = require('extract-text-webpack-plugin');
 let CopyWebpackPlugin = require('copy-webpack-plugin');
 let CleanWebpackPlugin = require('clean-webpack-plugin');
+
+
+// Plugins and variables
+// ------------------------------------------------------------
 let outputDir = process.env.NODE_ENV === 'dev' ? './dev' : './public';
 
 let extractPlugin = new extractTextPlugin({
@@ -22,6 +26,9 @@ let definePlugin = new webpack.DefinePlugin({
    API_KEY: JSON.stringify('rom93FHJOFb6TF4jSC7USdH03jogPMtfg7qDHrMd')
 });
 
+
+// Module
+// ------------------------------------------------------------
 module.exports = {
     context: path.resolve(__dirname, './dev/'),
     entry: {
