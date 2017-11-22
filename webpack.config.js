@@ -2,6 +2,7 @@ let path = require('path');
 let webpack = require('webpack');
 let extractTextPlugin = require('extract-text-webpack-plugin');
 let CopyWebpackPlugin = require('copy-webpack-plugin');
+let CleanWebpackPlugin = require('clean-webpack-plugin');
 let outputDir = process.env.NODE_ENV === 'dev' ? './dev' : './public';
 
 let extractPlugin = new extractTextPlugin({
@@ -14,6 +15,8 @@ let copyPlugin = new CopyWebpackPlugin([
         to: ''
     }
 ]);
+
+let cleanPlugin = new CleanWebpackPlugin(['public']);
 
 let definePlugin = new webpack.DefinePlugin({
    API_KEY: JSON.stringify('rom93FHJOFb6TF4jSC7USdH03jogPMtfg7qDHrMd')
@@ -47,7 +50,8 @@ module.exports = {
     plugins: [
         extractPlugin,
         copyPlugin,
-        definePlugin
+        definePlugin,
+        cleanPlugin
     ],
     devServer: {
         host: "0.0.0.0",
