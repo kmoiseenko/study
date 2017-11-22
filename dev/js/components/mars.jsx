@@ -52,7 +52,7 @@ class Mars extends React.Component {
 						</ul>
 					</div>
 				</div>
-				<Pagination defaultPage={this.state.page} pagesCount='10' onChange={this.paginationUpdate}/>
+				<Pagination defaultPage={this.state.page} pagesCount='30' onChange={this.paginationUpdate}/>
 			</div>
 		);
 	}
