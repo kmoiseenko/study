@@ -42,12 +42,12 @@ class Pagination extends React.Component {
         if(this.props.defaultPage + step < this.props.pagesCount) {
             result.push(
                 <li key='max-dots'
-                    className='app-pagination__item'
-                    onClick={this.onItemClick.bind(null, this.props.pagesCount)}>
+                    className='app-pagination__item'>
                     <button type='button'>...</button>
                 </li>,
                 <li key='max'
-                    className='app-pagination__item'>
+                    className='app-pagination__item'
+                    onClick={this.onItemClick.bind(null, this.props.pagesCount)}>
                     <button type='button'>{this.props.pagesCount}</button>
                 </li>
             )
