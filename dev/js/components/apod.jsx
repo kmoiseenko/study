@@ -10,11 +10,9 @@ class Apod extends React.Component {
 		this.state = {
 			apod: ''
 		}
-	}
 
-	componentWillMount = () => {
 		this.getApod();
-	};
+	}
 
 	getApod = () => {
 		getData('https://api.nasa.gov/planetary/apod?api_key=' + API_KEY).then(

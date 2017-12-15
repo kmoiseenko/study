@@ -12,11 +12,9 @@ class Mars extends React.Component {
 			mars: '',
 			page: 1,
 		}
-	}
 
-	componentWillMount = () => {
 		this.getMarsPictures(this.state.page);
-	};
+	}
 
 	getMarsPictures = (page) => {
 		getData('https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&page=' + page + '&api_key=' + API_KEY).then(
