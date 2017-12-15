@@ -12,7 +12,9 @@ class Mars extends React.Component {
 			mars: '',
 			page: 1,
 		}
+	}
 
+	componentWillMount() {
 		this.getMarsPictures(this.state.page);
 	}
 

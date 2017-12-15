@@ -10,7 +10,9 @@ class Apod extends React.Component {
 		this.state = {
 			apod: ''
 		}
+	}
 
+	componentWillMount() {
 		this.getApod();
 	}
 
